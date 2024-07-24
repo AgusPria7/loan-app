@@ -112,7 +112,6 @@
   </script>
   
   <style scoped>
-  /* Add your styles here */
     @media only screen and (max-width: 600px) {
     table {
         width: 100%;
