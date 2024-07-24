@@ -1,11 +1,23 @@
-<template>
-    <div v-if="loan">
-      <h1>Loan Details</h1>
-      <p>Amount: {{ loan.amount }}</p>
-      <p>Interest Rate: {{ loan.interestRate }}</p>
-      <p>Term: {{ loan.term }}</p>
-      <p>Borrower Details: {{ loan.borrowerDetails }}</p>
-      <p>Repayment Schedule: {{ loan.repaymentSchedule }}</p>
+  <template>
+    <div>
+      <h1>Detail Pinjaman</h1>
+      <div v-if="loan">
+        <h2>Pinjaman ID: {{ loan.id }}</h2>
+        <p>Jumlah: {{ loan.amount }}</p>
+        <p>Suku Bunga: {{ loan.interestRate }}%</p>
+        <p>Jangka Waktu: {{ loan.term }} bulan</p>
+        <p>Tujuan: {{ loan.purpose }}</p>
+        <p>Rating Risiko: {{ loan.riskRating }}</p>
+        <h3>Rincian Peminjam</h3>
+        <p>Nama: {{ loan.borrower.name }}</p>
+        <p>Alamat: {{ loan.borrower.address }}</p>
+        <h3>Jadwal Pembayaran</h3>
+        <ul>
+          <li v-for="payment in loan.paymentSchedule" :key="payment.date">
+            Tanggal: {{ payment.date }} - Jumlah: {{ payment.amount }}
+          </li>
+        </ul>
+      </div>
     </div>
   </template>
   
@@ -37,13 +49,19 @@
   </script>
   
   <style scoped>
-    @media only screen and (max-width: 600px) {
-    table {
-        width: 100%;
-    }
-    th, td {
-        font-size: 14px;
-    }
-    }
+  h1 {
+    font-size: 2em;
+    margin-bottom: 1em;
+  }
+  h2 {
+    font-size: 1.5em;
+  }
+  p {
+    margin: 0.5em 0;
+  }
+  h3 {
+    font-size: 1.2em;
+    margin-top: 1em;
+  }
   </style>
   

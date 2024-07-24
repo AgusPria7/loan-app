@@ -112,13 +112,9 @@
   </script>
   
   <style scoped>
-    @media only screen and (max-width: 600px) {
-    table {
-        width: 100%;
-    }
-    th, td {
-        font-size: 14px;
-    }
-    }
+  h1 {
+    font-size: 2em;
+    margin-bottom: 1em;
+  }
   </style>
   
